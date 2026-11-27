@@ -1,16 +1,17 @@
 # AtlasFinalProject
 
-AtlasFinalProject is a web application project scaffold. The tracked repository currently contains the shared CSS foundation and the planned folders for application assets, API files, data, documentation, and tests. It does not yet include an HTML entry point or application/backend implementation.
+AtlasFinalProject is a PHP web application for Atlas & Lore. The project currently includes a style-guide foundation, a browser preview page, and shared header/footer PHP includes. Application APIs, database logic, JavaScript features, and production content are still being developed.
 
 ## Project status
 
 | Area | Current state |
 | --- | --- |
-| Front end | Shared CSS foundation in `public/css/shared.css`; no HTML page or JavaScript implementation is tracked yet |
+| Front end | PHP preview page and shared CSS foundation; JavaScript implementation is not present yet |
 | API and data | Placeholder directories only |
-| Database and includes | Empty local folders; no files from these folders are tracked yet |
+| Database | Placeholder directory only |
+| PHP includes | Shared header and footer are available |
 | Documentation and tests | Placeholder files/directories only; no test suite or test command is configured |
-| Dependencies/build | No package manifest, dependency installation, build, or run command is currently defined |
+| Dependencies/build | No package manifest or build step; PHP is required to run the page |
 
 This README describes the repository as it exists now. When the application is implemented, update the setup and run instructions here to match its actual dependencies and entry points.
 
@@ -23,8 +24,11 @@ AtlasFinalProject/
 ├── database/                    # Empty locally; not present in the tracked tree
 ├── docs/
 │   └── .gitkeep
-├── includes/                    # Empty locally; not present in the tracked tree
+├── includes/
+│   ├── header.php
+│   └── footer.php
 ├── public/
+│   ├── index.php
 │   ├── api/
 │   │   └── .gitkeep
 │   ├── assets/
@@ -47,7 +51,8 @@ AtlasFinalProject/
 
 | Path | Purpose and current contents |
 | --- | --- |
-| `public/` | Intended location for browser-accessible application files. |
+| `public/` | Browser-accessible application files. |
+| `public/index.php` | Atlas & Lore homepage preview with a globe-style hero section. |
 | `public/css/shared.css` | Shared design tokens, base styles, layout helpers, reusable components, and accessibility helpers. |
 | `public/css/` | Stylesheets. The directory currently contains only the shared stylesheet and a placeholder. |
 | `public/js/` | Intended location for browser-side JavaScript; currently a placeholder. |
@@ -55,7 +60,8 @@ AtlasFinalProject/
 | `public/assets/images/` | Intended location for image assets; currently a placeholder. |
 | `public/data/` | Intended location for public/static data; currently a placeholder. |
 | `database/` | Empty in the current local workspace and not included in the tracked Git tree. No schema or migrations are present. |
-| `includes/` | Empty in the current local workspace and not included in the tracked Git tree. No shared server-side code is present. |
+| `includes/header.php` | Shared document head, font imports, stylesheet link, skip link, and page header. |
+| `includes/footer.php` | Shared closing HTML/footer markup. |
 | `docs/` | Reserved for project documentation; currently contains only `.gitkeep`. |
 | `tests/` | Reserved for tests; currently contains only `.gitkeep`, with no test runner configured. |
 | `.gitignore` | Excludes local credentials (`config.php`, `.env`), OS/editor clutter, Python cache files, and logs. |
@@ -65,22 +71,21 @@ AtlasFinalProject/
 
 `public/css/shared.css` currently provides:
 
-- CSS custom properties for the dark ink, parchment, brass, success, and error color palette.
+- Monochrome CSS custom properties for backgrounds, surfaces, borders, text, accent states, success, and error colors.
 - Typography and spacing tokens, plus shared radius, shadow, motion, and layout values.
 - Base page, heading, paragraph, link, and image styles.
 - Layout helpers (`.container`, `.section`, `.stack`) and reusable button, card, chip, and field styles.
 - Keyboard focus, visually hidden text, skip-link, and reduced-motion helpers.
 
-The stylesheet references Cormorant Garamond and Inter as preferred fonts, with system/serif fallbacks. No font files or font-loading configuration are included in the repository.
+The stylesheet uses Instrument Serif for display headings, Inter for body text, and IBM Plex Mono for small labels and eyebrows. Google Fonts provides these typefaces, with local serif and system font fallbacks.
 
 ## Set up locally
 
 ### Requirements
 
 - Git
+- PHP
 - A code editor of your choice
-
-There are currently no runtime, package manager, database server, or build-tool requirements because the repository does not yet contain a runnable application.
 
 ### Clone the repository
 
@@ -105,7 +110,15 @@ code .
 
 ### Run and test status
 
-There is no application entry point to launch in a browser yet, and no test command is configured. No dependency installation is required. The existing stylesheet can be reviewed directly at `public/css/shared.css`; to preview it in a browser, first add an HTML page that links to it.
+Start the local PHP server from the repository root:
+
+```sh
+php -S localhost:8000 -t public
+```
+
+Then open `http://localhost:8000/` in a browser. No dependency installation or build step is required.
+
+There is currently no test suite or test command configured.
 
 Before adding local credentials or machine-specific settings, keep them out of source control. The repository already ignores `.env` and `config.php`; do not commit secrets.
 
