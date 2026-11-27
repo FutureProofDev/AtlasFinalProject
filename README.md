@@ -132,8 +132,8 @@ The percentages below use the author count of commits reachable in the repositor
 
 | Contributor | Recorded commits | Share |
 | --- | ---: | ---: |
-| Nii Sowah Kwabla Sowah | 5 | 62.5% |
-| Natalie Rose Andzie-Mensah | 3 | 37.5% |
+| Nii Sowah Kwabla Sowah | 5 | 56% |
+| Natalie Rose Andzie-Mensah | 4 | 44% |
 | Vladimir Noel Aduama | 0 | 0% recorded |
 | Desmond Barimah | 0 | 0% recorded |
 | Kukuwa Amoah | 0 | 0% recorded |
